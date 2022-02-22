@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/health');
-var userRouter = require('./routes/user');
-var commentRouter = require('./routes/comment')
+var indexRouter = require('./domains/health/route');
+var userRouter = require('./domains/user/route');
+var commentRouter = require('./domain/comment/route')
 
 var app = express();
 
@@ -39,5 +39,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var db = require('./database');
+db.sequelize.sync();
 
 module.exports = app;
