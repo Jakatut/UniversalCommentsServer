@@ -8,7 +8,7 @@ require('dotenv').config();
 var indexRouter = require('domains/health/route');
 var userRouter = require('domains/user/route');
 var commentRouter = require('domains/comment/route')
-var db = require('database/database');
+var db = require('database');
 
 var app = express();
 

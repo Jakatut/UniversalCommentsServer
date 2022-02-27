@@ -2,6 +2,6 @@
     "compilerOptions": {
         "baseUrl": "./src"
     },
-    "include": ["src/domains", "src/database"],
+    "include": ["src/domains", "src/database", "src/database.js"],
     "exclude": ["node_modules", "dist"]
 }

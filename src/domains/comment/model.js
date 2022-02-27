@@ -1,32 +1,33 @@
-const { DataTypes } = require('sequelize');
-var User = require('domains/user/model');
+const User = require('domains/user/model');
 
-module.exports = (sequelize) => {
-	var Comment = sequelize.define('comment', {
+module.exports = (sequelize, Sequelize) => {
+	const Comment = sequelize.define('comment', {
 		id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV1,
+            type: Sequelize.UUID,
+            defaultValue: Sequelize.UUIDV1,
 			primaryKey: true,
 		},
 		content: {
-			type: DataTypes.STRING(2000),
+			type: Sequelize.STRING(2000),
 		},
 		user_id: {
-			type: DataTypes.UUID,
-			defaultValue: DataTypes.UUIDV1
+			type: Sequelize.UUID,
+			defaultValue: Sequelize.UUIDV1
 		},
 		url: {
-			type: DataTypes.STRING(2048), // 2048 is the max url length, at least in chrome.
+			type: Sequelize.STRING(2048), // 2048 is the max url length, at least in chrome.
 		},
 		created_at: {
-			type: DataTypes.DATE,
+			type: Sequelize.DATE,
 		},
 		edited_at: {
-			type: DataTypes.DATE,
+			type: Sequelize.DATE,
 		},
 		parent_comment_id: {
-			type: DataTypes.UUID,
-			defaultValue: DataTypes.UUIDV1
+			type: Sequelize.UUID,
+			defaultValue: Sequelize.UUIDV1
 		},
 	});
+
+	return Comment;
 };
