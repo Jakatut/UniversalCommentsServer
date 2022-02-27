@@ -4,9 +4,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV1,
             primaryKey: true,
-        },
-        created_at: {
-            type: Sequelize.DATE
         }
     });
 

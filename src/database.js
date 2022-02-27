@@ -11,7 +11,7 @@ db.Sequelize = Sequelize;
 db.comment = require('domains/comment/model')(sequelize, Sequelize);
 db.user = require('domains/user/model')(sequelize, Sequelize);
 
-db.comment.belongsTo(db.user, {foreignKey: 'user_id'})
-db.user.hasMany(db.comment, {foreignKey: 'user_id', as: 'comments'})
+db.comment.belongsTo(db.user, {foreignKey: 'user_id', as: 'comments'})
+db.user.hasMany(db.comment, {foreignKey: 'user_id', as: 'comments', onDelete: 'CASCADE'})
 
 module.exports = db;
