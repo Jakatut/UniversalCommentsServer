@@ -1,6 +1,5 @@
 require('dotenv').config();
 var { Sequelize } = require('sequelize');
-const pg = require('pg');
 
 
 const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER_NAME, process.env.DATABASE_PASSWORD, {

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
 var indexRouter = require('domains/health/route');
 var userRouter = require('domains/user/route');
@@ -42,5 +43,10 @@ app.use(function(err, req, res, next) {
 });
 
 db.sequelize.sync();
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`)
+})
 
 module.exports = app;
